@@ -3,7 +3,6 @@ class Solution {
         int start=0;
         int end=arr.length-1;
         int currentIndex=0;
-       // if(start<end){
         while(start<=end){
             int mid=start+(end-start)/2;
             if(target<arr[mid]){
@@ -16,13 +15,6 @@ class Solution {
                 return mid;
             }
         }
-       // }
-    //    else{
-    //       // int currentIndex=0;
-    //         while(arr[currentIndex]<target){
-    //             currentIndex++;
-    //         }
-    //    }
         return start;
     }
 }
