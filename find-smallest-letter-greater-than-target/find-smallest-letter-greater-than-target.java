@@ -10,9 +10,6 @@ class Solution {
             else{
                 start=mid+1;
             }
-            // else{
-                // return letters[mid];
-         //  }
         }
         return letters[start%letters.length];
     }
