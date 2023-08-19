@@ -14,10 +14,10 @@ class Solution {
         //     return 0;
         // }
         ArrayList<Integer> list=new ArrayList<>();
-        ListNode temp=head;
-        while(temp!=null){
-            list.add(temp.val);
-            temp=temp.next;
+        //ListNode temp=head;
+        while(head!=null){
+            list.add(head.val);
+            head=head.next;
         }
        int size=list.size();
        int  sum=0;
