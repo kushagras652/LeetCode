@@ -40,5 +40,4 @@ class Solution {
         return reversed;
 
     }
-
 }
