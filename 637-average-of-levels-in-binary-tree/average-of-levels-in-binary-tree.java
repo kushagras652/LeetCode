@@ -24,23 +24,25 @@ class Solution {
 
         while(!q.isEmpty()){
             int level=q.size();
-            List<Integer> a=new ArrayList<>();
+            double sum=0;
+            // List<Integer> a=new ArrayList<>();
             for(int i=0;i<level;i++){
             TreeNode curr=q.poll();
-            a.add(curr.val);
-
+           // a.add(curr.val);
+           sum+=curr.val;
             if(curr.left!=null)
             q.offer(curr.left);
 
             if(curr.right!=null)
             q.offer(curr.right);
             }
-            double sum=0;
-            for(int elem:a){
-                sum+=elem;
-            }
-            double result=sum/a.size();
-            list.add(result);
+            list.add(sum/level);
+            // double sum=0;
+            // for(int elem:a){
+            //     sum+=elem;
+            // }
+            // double result=sum/a.size();
+            // list.add(result);
         }
         return list;
     }
