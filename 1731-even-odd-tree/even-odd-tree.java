@@ -17,8 +17,8 @@ class Solution {
     public boolean isEvenOddTree(TreeNode root) {
         int level=0;
 
-        if(root.val%2==0)
-        return false;
+        // if(root.val%2==0)
+        // return false;
 
         Queue<TreeNode> q=new LinkedList<>();
         q.add(root);
