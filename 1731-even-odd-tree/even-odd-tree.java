@@ -17,9 +17,6 @@ class Solution {
     public boolean isEvenOddTree(TreeNode root) {
         int level=0;
 
-        // if(root.val%2==0)
-        // return false;
-
         Queue<TreeNode> q=new LinkedList<>();
         q.add(root);
 
@@ -30,27 +27,17 @@ class Solution {
             for(int i=0;i<size;++i){
                 TreeNode curr=q.poll();
 
-                if(level%2==0){
-                    if(curr.val%2==0 || (prev!=null && curr.val<=prev))
+                  if ((level % 2 == 0 && (curr.val % 2 == 0 || (prev != null && curr.val <= prev)))
+                        || (level % 2 != 0 && (curr.val % 2 != 0 || (prev != null && curr.val >= prev)))) {
                     return false;
-                    else{
-                        if(curr.left!=null)
+                }
+
+                  prev=curr.val;
+
+                     if(curr.left!=null)
                         q.offer(curr.left);
                         if(curr.right!=null)
                         q.offer(curr.right);
-                    }
-                }
-                else{
-                    if(curr.val%2!=0 || (prev!=null && curr.val>=prev))
-                    return false;
-                    else{
-                         if(curr.left!=null)
-                        q.offer(curr.left);
-                        if(curr.right!=null)
-                        q.offer(curr.right);
-                    }
-                }
-                prev=curr.val;
             }
             level++;
         }
