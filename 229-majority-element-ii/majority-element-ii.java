@@ -1,29 +1,24 @@
 class Solution {
     public List<Integer> majorityElement(int[] nums) {
-       List<Integer> elem=new ArrayList<>();
-        int size=nums.length/3;
-        int count=1;
-
-         if (nums.length == 0) {
-            return elem;
-        }
+        int n=nums.length;
         Arrays.sort(nums);
-        int i=1;
-        while(i<nums.length){
-            if(nums[i]==nums[i-1]){
-                count++;
+        int count=1;
+        List<Integer> list=new ArrayList<>();
+        for(int i=0;i<n-1;i++){
+            if(nums[i]==nums[i+1])
+            count++;
+
+            if(nums[i]!=nums[i+1])
+            count=1;
+
+            if(count>n/3){
+                if(!list.contains(nums[i]))
+                list.add(nums[i]);
             }
-            else{
-                count=1;
-            }
-            if(count>size && !elem.contains(nums[i-1])){
-                elem.add(nums[i-1]);
-            }
-            i++;
         }
-         if (count > size && !elem.contains(nums[nums.length - 1])) {
-            elem.add(nums[nums.length - 1]);
+         if (count > n/3 && !list.contains(nums[nums.length - 1])) {
+            list.add(nums[nums.length - 1]);
         }
-        return elem;
+        return list;
     }
 }
