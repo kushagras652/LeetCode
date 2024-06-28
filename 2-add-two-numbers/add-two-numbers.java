@@ -10,7 +10,7 @@
  */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-         ListNode dummyHead = new ListNode(0);
+        ListNode dummyHead = new ListNode(0);
         ListNode current = dummyHead;
         int carry = 0;
 
@@ -40,18 +40,4 @@ class Solution {
 
         return dummyHead.next;
     }
-    //  public ListNode reverse(ListNode head){
-    //     ListNode prev=null;
-    //     ListNode current=head;
-    //     ListNode next=current.next;
-    //     while(current!=null){
-    //         current.next=prev;
-    //         prev=current;
-    //         current=next;
-    //        while(next!=null){
-    //            next=next.next;
-    //        }
-    //     }
-    //     return prev;
-    // }
 }
