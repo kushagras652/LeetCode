@@ -10,33 +10,21 @@
  */
 class Solution {
     public ListNode rotateRight(ListNode head, int k) {
-          if (head == null || k == 0) {
-            return head; 
-        }
-        
-        ListNode temp = head;
-        int count = 1;
-
-        while (temp.next != null) {
-            temp = temp.next;
+        if(head==null || k==0)
+        return head;
+        ListNode temp=head;
+        int count=1;
+        while(temp.next!=null){
+            temp=temp.next;
             count++;
         }
-        
-        k %= count; 
-        
-        if (k == 0) {
-            return head; 
+        temp.next=head;
+        k%=count;
+        for(int i=0;i<count-k;i++){
+            temp=temp.next;
         }
-
-        temp.next = head;
-        
-        for (int i = 0; i < count - k; i++) {
-            temp = temp.next;
-        }
-        
-        head = temp.next;
-        temp.next = null;
-        
+            head=temp.next;
+        temp.next=null;
         return head;
     }
 }
