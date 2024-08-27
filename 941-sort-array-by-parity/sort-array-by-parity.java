@@ -1,18 +1,24 @@
 class Solution {
     public int[] sortArrayByParity(int[] nums) {
-        int[] arr=new int[nums.length];
-        int even=0;
-        int odd=nums.length-1;
+        List<Integer> list1=new ArrayList<>();
+        List<Integer> list2=new ArrayList<>();
         for(int elem:nums){
             if(elem%2==0){
-                arr[even]=elem;
-                even++;
+                list1.add(elem);
             }
             else{
-                arr[odd]=elem;
-                odd--;
+                list2.add(elem);
             }
         }
-        return arr;
+            int i=0;
+        while(!list1.isEmpty()){
+            nums[i]=list1.remove(0);
+            i++;
+        }
+          while(!list2.isEmpty()){
+            nums[i]=list2.remove(0);
+            i++;
+        }
+        return nums;
     }
 }
