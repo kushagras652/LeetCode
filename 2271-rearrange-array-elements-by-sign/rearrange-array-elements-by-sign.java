@@ -1,23 +1,17 @@
 class Solution {
     public int[] rearrangeArray(int[] nums) {
-        ArrayList<Integer> list1=new ArrayList<>();
-        ArrayList<Integer> list2=new ArrayList<>();
-
+        int i=0,j=1;
+        int[] arr=new int[nums.length];
         for(int elem:nums){
-            if(elem>0)
-            list1.add(elem);
-            else
-            list2.add(elem);
-        }
-
-          int posIndex = 0, negIndex = 0;
-        for(int i=0;i<nums.length;i++){
-            if(i%2==0){
-                nums[i]=list1.get(posIndex++);
+            if(elem>0){
+                arr[i]=elem;
+                i=i+2;
             }
-            else
-            nums[i]=list2.get(negIndex++);
+            else{
+                arr[j]=elem;
+                j=j+2;
+            }
         }
-        return nums;
+        return arr;
     }
 }
