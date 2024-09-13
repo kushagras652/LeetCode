@@ -9,6 +9,9 @@ class Solution {
              return false;
 
              max=Math.max(max,i+nums[i]);
+
+             if(max>nums.length)
+             return true;
         }
         return true;
     }
