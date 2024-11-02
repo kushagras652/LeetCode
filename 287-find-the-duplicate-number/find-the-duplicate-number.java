@@ -42,12 +42,21 @@ class Solution {
     // }
     // return -1;
 
-    Set<Integer> set=new HashSet<>();
-    for(int elem:nums){
-        if(set.contains(elem))
-        return elem;
-        else{
-            set.add(elem);
+    // Set<Integer> set=new HashSet<>();
+    // for(int elem:nums){
+    //     if(set.contains(elem))
+    //     return elem;
+    //     else{
+    //         set.add(elem);
+    //     }
+    // }
+    // return -1;
+
+
+    Arrays.sort(nums);
+    for(int i=0;i<nums.length-1;i++){
+        if(nums[i]==nums[i+1]){
+            return nums[i];
         }
     }
     return -1;
