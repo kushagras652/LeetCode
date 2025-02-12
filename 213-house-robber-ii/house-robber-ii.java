@@ -1,40 +1,33 @@
 class Solution {
     public int rob(int[] nums) {
-        if(nums.length==1)
+        int n=nums.length;
+        if(n==1)
         return nums[0];
+        
+        int[] arr1=Arrays.copyOfRange(nums,0,n-1);
+        int[] arr2=Arrays.copyOfRange(nums,1,n);
 
-            Integer[] dp=new Integer[nums.length];
-        int ans=solve(nums,dp,0,nums.length-1);
-        Arrays.fill(dp,null);
-        ans=Math.max(ans,solve(nums,dp,1,nums.length));
-        return ans;
+        return Math.max(helper(arr1),helper(arr2));
     }
-    public int solve(int[] nums,Integer[] dp,int s,int e){
-        if(s>=e)
+
+    int helper(int[] nums){
+        int n=nums.length;
+        int[] dp=new int[n];
+        Arrays.fill(dp,-1);
+        return func(n-1,nums,dp);
+    }
+    int func(int n,int[] nums,int[] dp){
+        if(n==0)
+        return nums[0];
+        if(n<0)
         return 0;
 
-        if(dp[s]!=null){
-            return dp[s];
-        }
+        if(dp[n]!=-1)
+        return dp[n];
 
-        return dp[s]=Math.max(solve(nums,dp,s+1,e),solve(nums,dp,s+2,e)+nums[s]);
+        int take=nums[n]+func(n-2,nums,dp);
+        int not=func(n-1,nums,dp);
+
+        return dp[n]=Math.max(take,not);
     }
 }
-
-
-// class Solution {
-//     public int rob(int[] nums) {
-//         if(nums.length==1) return nums[0];
-//         Integer dp[]=new Integer[nums.length];
-//         int ans=sol(nums,dp,0,nums.length-1);
-//         Arrays.fill(dp,null);
-//         ans=Math.max(ans,sol(nums,dp,1,nums.length));
-//         return ans;
-//     }
-//     public int sol(int[] nums,Integer[] dp,int s,int e){
-//         if(s>=e) return 0;
-//         if(dp[s]!=null) return dp[s];
-//         dp[s]=Math.max(sol(nums,dp,s+1,e),sol(nums,dp,s+2,e)+nums[s]);
-//         return dp[s];
-//     }
-// }
