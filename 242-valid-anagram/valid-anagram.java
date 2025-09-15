@@ -5,7 +5,6 @@ class Solution {
             for(int j=0;j<t.length();j++){
                 if(s.charAt(i)==t.charAt(j)){
                     t=t.substring(0,j)+""+t.substring(j+1,t.length());
-                    // System.out.println(t);
                     break;
                 }
             }
