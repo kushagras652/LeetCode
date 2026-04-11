@@ -21,28 +21,22 @@ class Solution {
 
         Queue<TreeNode> q=new LinkedList<>();
         q.add(root);
-
+        // System.out.println("hello");
         while(!q.isEmpty()){
-            int level=q.size();
+            int size=q.size();
             double sum=0;
-            // List<Integer> a=new ArrayList<>();
-            for(int i=0;i<level;i++){
-            TreeNode curr=q.poll();
-           // a.add(curr.val);
-           sum+=curr.val;
-            if(curr.left!=null)
-            q.offer(curr.left);
-
-            if(curr.right!=null)
-            q.offer(curr.right);
+            // System.out.println(sum);
+            for(int i=0;i<size;i++){
+                TreeNode node=q.poll();
+                sum+=node.val;
+                if(node.left!=null)
+                q.add(node.left);
+                if(node.right!=null)
+                q.add(node.right);
             }
-            list.add(sum/level);
-            // double sum=0;
-            // for(int elem:a){
-            //     sum+=elem;
-            // }
-            // double result=sum/a.size();
-            // list.add(result);
+            // System.out.println(sum);
+            double avg=sum/size;
+            list.add(avg);
         }
         return list;
     }
