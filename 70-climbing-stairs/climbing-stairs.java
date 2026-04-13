@@ -2,21 +2,31 @@ class Solution {
     public int climbStairs(int n) {
         int[] dp=new int[n+1];
         Arrays.fill(dp,-1);
+       return climb(n,dp);
 
-        return func(n,dp);
+   
     }
+    int climb(int n,int[] dp){
+        //  Arrays.fill(dp,-1);
 
-    int func(int n,int[] dp){
-        if(n==0)
-        return 1;
+        // dp[1]=1;
+        // dp[2]=2;
 
-        if(dp[n]!=-1)
-        return dp[n];
+        // for(int i=3;i<n;i++){
+        //     dp[i]=dp[i-1]+dp[i-2];
+        // }
 
-        int left=func(n-1,dp);
-        int right=0;
-        if(n>1)
-         right=func(n-2,dp);
-        return dp[n]=left+right;
+        // if(dp[n]!=-1)
+        // return dp[n];
+
+         if(n<=1)
+    return 1;
+
+    if(dp[n]!=-1)
+    return dp[n];
+
+    return dp[n]=climb(n-1,dp)+climb(n-2,dp);
+
+        // return dp[n];
     }
 }
