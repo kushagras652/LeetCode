@@ -16,7 +16,5 @@ class Solution {
         subs(index+1,nums,list,list2);
         list2.remove(list2.size()-1);
         subs(index+1,nums,list,list2);
-
-        return ;
     }
 }
