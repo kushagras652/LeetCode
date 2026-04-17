@@ -10,11 +10,11 @@ class Solution {
             list.add(new ArrayList<>(list2));
             return ;
         }
-        if(index>=nums.length){
-            return ;
-        }
+        // if(index>=nums.length){
+        //     return ;
+        // }
 
-        if(sum>target)
+        if(sum>target || index>=nums.length)
         return ;
 
         list2.add(nums[index]);
