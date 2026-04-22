@@ -18,14 +18,11 @@ class Solution {
         List<Double> list=new ArrayList<>();
         if(root==null)
         return list;
-
         Queue<TreeNode> q=new LinkedList<>();
         q.add(root);
-        // System.out.println("hello");
         while(!q.isEmpty()){
             int size=q.size();
             double sum=0;
-            // System.out.println(sum);
             for(int i=0;i<size;i++){
                 TreeNode node=q.poll();
                 sum+=node.val;
@@ -34,7 +31,6 @@ class Solution {
                 if(node.right!=null)
                 q.add(node.right);
             }
-            // System.out.println(sum);
             double avg=sum/size;
             list.add(avg);
         }
