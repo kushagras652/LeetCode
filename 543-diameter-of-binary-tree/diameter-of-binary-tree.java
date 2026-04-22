@@ -19,16 +19,12 @@ class Solution {
         height(root);
         return max;
     }
-    public int height(TreeNode root){
+    int height(TreeNode root){
         if(root==null)
         return 0;
 
         int left=height(root.left);
         int right=height(root.right);
-
-        // return left+right+1;
-        // int max=0;
-        // int height=left+right;
 
         max=Math.max(max,left+right);
 
