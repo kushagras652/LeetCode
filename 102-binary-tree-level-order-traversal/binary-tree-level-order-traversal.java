@@ -20,13 +20,12 @@ class Solution {
         return list;
         Queue<TreeNode> q=new LinkedList<>();
         q.add(root);
+
         while(!q.isEmpty()){
             int size=q.size();
             ArrayList<Integer> list2=new ArrayList<>();
-
             for(int i=0;i<size;i++){
                 TreeNode node=q.poll();
-                
                 list2.add(node.val);
                 if(node.left!=null)
                 q.add(node.left);
