@@ -18,13 +18,11 @@ class Solution {
         if(root==null)
         return null;
 
-        TreeNode temp=new TreeNode();
         TreeNode left=invertTree(root.left);
+        // System.out.println(left);
         TreeNode right=invertTree(root.right);
+        // System.out.println(right);
 
-        // temp=left;
-        // left=right;
-        // right=temp;
         root.left=right;
         root.right=left;
 
