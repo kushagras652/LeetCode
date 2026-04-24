@@ -15,18 +15,23 @@
  */
 class Solution {
     public int kthSmallest(TreeNode root, int k) {
-        ArrayList<Integer> list=new ArrayList<>();
-        small(root,list);
-        Collections.sort(list);
-        return list.get(k-1);
+        // ArrayList<Integer> list=new ArrayList<>();
+        PriorityQueue<Integer> pq=new PriorityQueue<>(Collections.reverseOrder());
+        small(root,pq,k);
+        // Collections.sort(list);
+        return pq.peek();
     }
-    public void small(TreeNode root,ArrayList<Integer> list){
+    public void small(TreeNode root,PriorityQueue<Integer> pq,int k){
         if(root==null)
         return ;
 
-        list.add(root.val);
-        small(root.left,list);
-        small(root.right,list);
+        pq.add(root.val);
+        
+        if(pq.size()>k)
+        pq.poll();
+        
+        small(root.left,pq,k);
+        small(root.right,pq,k);
         // if(root.left!=null){
         //     list.add(root.val);
         //     small(root.left,list);
